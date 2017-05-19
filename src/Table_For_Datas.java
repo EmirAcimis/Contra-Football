@@ -39,7 +39,7 @@ public class Table_For_Datas {
 			statement.executeUpdate("CREATE TABLE Statistics" +
 					"(user_id FLOAT, no_of_games INT, no_of_goals INT, no_of_assists INT, no_of_passes INT, no_of_shoots INT,PRIMARY KEY(user_id))ENGINE=INNODB;");
 			statement.executeUpdate("CREATE TABLE Team" +
-					"(team_id FLOAT,name VARCHAR(20), stadium VARCHAR(20), colors VARCHAR(20), date_of_establish DATE, city VARCHAR(20), budget INT, overall_wage INT,PRIMARY KEY(team_id))ENGINE=INNODB;");
+					"(team_id FLOAT,name VARCHAR(30), stadium VARCHAR(30), colors VARCHAR(20), date_of_establish INT, city VARCHAR(20), budget INT, overall_wage INT,PRIMARY KEY(team_id))ENGINE=INNODB;");
 			statement.executeUpdate("CREATE TABLE Game" +
 					"(game_id FLOAT, stadium VARCHAR(20), date DATE, no_of_spectators INT, home_id FLOAT, away_id FLOAT, score VARCHAR(5), PRIMARY KEY(game_id),FOREIGN KEY(home_id) REFERENCES Team(team_id), FOREIGN KEY(away_id) REFERENCES Team(team_id))ENGINE=INNODB;");
 			statement.executeUpdate("CREATE TABLE Plays" +
@@ -51,30 +51,30 @@ public class Table_For_Datas {
 			statement.executeUpdate("CREATE TABLE Publish" +
 					"(post_id FLOAT, user_id FLOAT, text VARCHAR(512), date DATE,PRIMARY KEY(post_id), FOREIGN KEY(post_id) REFERENCES Post(post_id), FOREIGN KEY(user_id) REFERENCES User(user_id))ENGINE=INNODB;");
 			
-			//Team Table Insertions Not Done
+			//Team Table Insertions Done
 			
-			statement.executeUpdate("INSERT INTO Team (team_id, name, stadium, colors, date_of_establish, city, budget, overall_wage, )" + 
-					"VALUES    ('01', 'Adanaspor','5 Ocak','Orange-White','','Adana','','')" +
-							", ('02','Tolga Zengin','Goal Keeper','Besiktas','0') " +
-							", ('03','Utku Yuvakuran','Goal Keeper','Besiktas','0') " +
-							", ('04','Huseyin Yilmaz','Goal Keeper','Besiktas','0') " +
-							", ('05','Adriano Correia','Defence','Besiktas','0') " +
-							", ('06','Huseyin Yilmaz','Goal Keeper','Besiktas','0') " +
-							", ('07','Huseyin Yilmaz','Goal Keeper','Besiktas','0') " +
-							", ('08','Huseyin Yilmaz','Goal Keeper','Besiktas','0') " +
-							", ('09','Huseyin Yilmaz','Goal Keeper','Besiktas','0') " +
-							", ('10','Huseyin Yilmaz','Goal Keeper','Besiktas','0') " +
-							", ('11','Huseyin Yilmaz','Goal Keeper','Besiktas','0') " +
-							", ('12','Huseyin Yilmaz','Goal Keeper','Besiktas','0') " +
-							", ('13','Huseyin Yilmaz','Goal Keeper','Besiktas','0') " +
-							", ('14','Huseyin Yilmaz','Goal Keeper','Besiktas','0') " +
-							", ('15','Huseyin Yilmaz','Goal Keeper','Besiktas','0') " +
-							", ('16','Huseyin Yilmaz','Goal Keeper','Besiktas','0') " +
-							", ('17','Huseyin Yilmaz','Goal Keeper','Besiktas','0') " +
-							", ('18','Huseyin Yilmaz','Goal Keeper','Besiktas','0') " );
+			statement.executeUpdate("INSERT INTO Team (team_id, name, stadium, colors, date_of_establish, city, budget, overall_wage)" + 
+					"VALUES    ('01', 'Adanaspor','5 Ocak Stadium','Orange-White','1954','Adana','678000','18300000')" +
+							", ('02', 'Akhisar Bel. Spor','Manisa 19 Mayýs Stadium','Green-Black','1970','Manisa','1120000','29000000') " +
+							", ('03', 'Antalyaspor','Akdeniz Stadium','Red-White','1966','Antalya','1160000','31280000') " +
+							", ('04', 'Atikey Konyaspor','Torku Arena','Green-White','1981','Konya','1260000','31500000') " +
+							", ('05', 'Aytemiz Alanyaspor','Alanya Oba Stadium','Orange-Green','1948','Alanya','1120000','30350000') " +
+							", ('06', 'Besiktas JK','Vodafone Arena','Black-White','1903','Istanbul','4290000','120250000') " +
+							", ('07', 'Bursaspor','Timsah Arena','Green-White','1963','Bursa','1530000','44300000') " +
+							", ('08', 'Çaykur Rizespor','Çaykur Didi Stadium','Blue-Green','1953','Rize','934000','26150000') " +
+							", ('09', 'Fenerbahce SK','Ulker Arena','Yellow-Navyblue','1907','Istanbul','5100000','137650000') " +
+							", ('10', 'Galatasaray SK','Turk Telekom Arena','Yellow-Red','1905','Istanbul','3580000','100100000') " +
+							", ('11', 'Gaziantepspor','Gaziantep Arena','Red-Black','1969','Gaziantep','988000','25700000') " +
+							", ('12', 'Gençlerbirliði','Ankara 19 Mayýs Stadium','Red-Black','1923','Ankara','872000','22680000') " +
+							", ('13', 'Kardemir Karabükspor','Dr. Necmettin Seyhoðlu Stadium','Blue-Red','1969','Karabük','902000','23450000') " +
+							", ('14', 'Kasýmpasa SK','Recep Tayyip Erdoðan Stadium','Blue-White','1921','Istanbul','1160000','34900000') " +
+							", ('15', 'Kayserispor','Kadir Has Stadium','Red-Yellow','1966','Kayseri','1150000','26350000') " +
+							", ('16', 'Medipol Basaksehir SK','Fatih Terim Stadium','Navyblue-Orange','1990','Istanbul','2190000','59050000') " +
+							", ('17', 'Osmanlýspor FK','Osmanlý Stadium','Purple-White','1978','Ankara','1880000','50650000') " +
+							", ('18', 'Trabzonspor','Medicalpark Arena','Blue-Claret Red','1966','Trabzon','2230000','58050000') " );
 			
 			
-			
+			//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			//Player Table Insertions
 			
 			statement.executeUpdate("INSERT INTO Player (player_id, name, position, player_team, value)" + 
@@ -113,51 +113,60 @@ public class Table_For_Datas {
 							", ('100175','Vincent Aboubakar','Forward','Besiktas','0') ");
 
 
-			/////////////////////////////////////////////////////////////////
 
 			statement.executeUpdate("INSERT INTO Player (player_id, name, position, player_team, value)" + 
-					"VALUES    ('100176','Mert Gunok','Goal Keeper','Bursa Spor','0')" +
-							", ('100177','Harun Tekin','Goal Keeper','Bursa Spor','0') " +
-							", ('100178','Muhammed Sengezer','Goal Keeper','Bursa Spor','0') " +
-							", ('100179','Ataberk Dadakdeniz','Goal Keeper','Bursa Spor','0') " +
-							", ('100180','Tomas Sivok','Defence','Bursa Spor','0') " +
-							", ('100181','Serdar Kurtulus','Defence','Bursa Spor','0') " +
-							", ('100182','Erdem Ozgenc','Defence','Bursa Spor','0') " +
-							", ('100183','Ismail Konuk','Defence','Bursa Spor','0') " +
-							", ('100184','Aziz Behich','Defence','Bursa Spor','0') " +
-							", ('100185','Boban Jovic','Defence','Bursa Spor','0') " +
-							", ('100186','Emre Tasdemir','Defence','Bursa Spor','0') " +
-							", ('100187','Ertugrul Ersoy','Defence','Bursa Spor','0') " +
-							", ('100188','Onur Atasayar','Defence','Bursa Spor','0') " +
-							", ('100189','Bunyamin Kasal','Defence','Bursa Spor','0') " +
-							", ('100190','Rustu Hanli','Defence','Bursa Spor','0') " +
-							", ('100191','Ricardo Faty','Midfield','Bursa Spor','0') " +
-							", ('100192','Pablo Batalla','Midfield','Bursa Spor','0') " +
-							", ('100193','Cristobal Jorquera','Midfield','Bursa Spor','0') " +
-							", ('100194','Merter Yuce','Midfield','Bursa Spor','0') " +
-							", ('100195','Furkan Ozcal','Midfield','Bursa Spor','0') " +
-							", ('100196','Bilal Kisa','Midfield','Bursa Spor','0') " +
-							", ('100197','Samil Cinaz','Midfield','Bursa Spor','0') " +
-							", ('100198','Furkan Soyalp','Midfield','Bursa Spor','0') " +
-							", ('100199','Mert Ornek','Midfield','Bursa Spor','0') " +
-							", ('100200','Berke Yilmaz','Midfield','Bursa Spor','0') " +
-							", ('100201','Gokhan Berkay Yildiz','Midfield','Bursa Spor','0') " +
-							", ('100202','Joshua John','Forward','Bursa Spor','0') " +
-							", ('100203','Yonathan Del Valle','Forward','Bursa Spor','0') " +
-							", ('100204','Sercan Yildirim','Forward','Bursa Spor','0') " +
-							", ('100205','Bogdan Stancu','Forward','Bursa Spor','0') " +
-							", ('100206','Deniz Yilmaz','Forward','Bursa Spor','0') " +
-							", ('100207','Sinan Bakis','Forward','Bursa Spor','0') " +
-							", ('100208','Kubilay Kanatsizkus','Forward','Bursa Spor','0') " +
-							", ('100209','Ismail Can Cavusluk','Forward','Bursa Spor','0') ");
+					"VALUES    ('100176','Mert Gunok','Goal Keeper','Bursaspor','0')" +
+							", ('100177','Harun Tekin','Goal Keeper','Bursaspor','0') " +
+							", ('100178','Muhammed Sengezer','Goal Keeper','Bursaspor','0') " +
+							", ('100179','Ataberk Dadakdeniz','Goal Keeper','Bursaspor','0') " +
+							", ('100180','Tomas Sivok','Defence','Bursaspor','0') " +
+							", ('100181','Serdar Kurtulus','Defence','Bursaspor','0') " +
+							", ('100182','Erdem Ozgenc','Defence','Bursaspor','0') " +
+							", ('100183','Ismail Konuk','Defence','Bursaspor','0') " +
+							", ('100184','Aziz Behich','Defence','Bursaspor','0') " +
+							", ('100185','Boban Jovic','Defence','Bursaspor','0') " +
+							", ('100186','Emre Tasdemir','Defence','Bursaspor','0') " +
+							", ('100187','Ertugrul Ersoy','Defence','Bursaspor','0') " +
+							", ('100188','Onur Atasayar','Defence','Bursaspor','0') " +
+							", ('100189','Bunyamin Kasal','Defence','Bursaspor','0') " +
+							", ('100190','Rustu Hanli','Defence','Bursaspor','0') " +
+							", ('100191','Ricardo Faty','Midfield','Bursaspor','0') " +
+							", ('100192','Pablo Batalla','Midfield','Bursaspor','0') " +
+							", ('100193','Cristobal Jorquera','Midfield','Bursaspor','0') " +
+							", ('100194','Merter Yuce','Midfield','Bursaspor','0') " +
+							", ('100195','Furkan Ozcal','Midfield','Bursaspor','0') " +
+							", ('100196','Bilal Kisa','Midfield','Bursaspor','0') " +
+							", ('100197','Samil Cinaz','Midfield','Bursaspor','0') " +
+							", ('100198','Furkan Soyalp','Midfield','Bursaspor','0') " +
+							", ('100199','Mert Ornek','Midfield','Bursaspor','0') " +
+							", ('100200','Berke Yilmaz','Midfield','Bursaspor','0') " +
+							", ('100201','Gokhan Berkay Yildiz','Midfield','Bursaspor','0') " +
+							", ('100202','Joshua John','Forward','Bursaspor','0') " +
+							", ('100203','Yonathan Del Valle','Forward','Bursaspor','0') " +
+							", ('100204','Sercan Yildirim','Forward','Bursaspor','0') " +
+							", ('100205','Bogdan Stancu','Forward','Bursaspor','0') " +
+							", ('100206','Deniz Yilmaz','Forward','Bursaspor','0') " +
+							", ('100207','Sinan Bakis','Forward','Bursaspor','0') " +
+							", ('100208','Kubilay Kanatsizkus','Forward','Bursaspor','0') " +
+							", ('100209','Ismail Can Cavusluk','Forward','Bursaspor','0') ");
+			
+			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	ResultSet rs = statement.executeQuery("SELECT * FROM Player WHERE player_team = 'Bursa Spor'");
+			ResultSet rs = statement.executeQuery("SELECT * FROM Player"); //Result For Player Table
 	
-	System.out.println("Player Table");
-	while(rs.next()){
-		System.out.println(rs.getString("player_id") + " " + rs.getString("name") + " " + rs.getString("position") + " " + rs.getString("player_team") + " " + rs.getString("value"));
-	}
-	System.out.println();
+			System.out.println("Player Table");
+			while(rs.next()){
+				System.out.println(rs.getString("player_id") + " " + rs.getString("name") + " " + rs.getString("position") + " " + rs.getString("player_team") + " " + rs.getString("value"));
+			}
+			System.out.println();
+			
+			ResultSet rs1 = statement.executeQuery("SELECT * FROM Team"); //Result For Team Table
+			
+			System.out.println("Team Table");
+			while(rs1.next()){
+				System.out.println(rs1.getString("team_id") + " " + rs1.getString("name") + " " + rs1.getString("stadium") + " " + rs1.getString("colors") + " " + rs1.getString("date_of_establish") + " " + rs1.getString("city") + " " + rs1.getString("budget")  + " " + rs1.getString("overall_wage"));
+			}
+			System.out.println();
 			
 			
 			
