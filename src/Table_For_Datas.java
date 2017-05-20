@@ -25,7 +25,7 @@ public class Table_For_Datas {
 			statement.executeUpdate("DROP TABLE IF EXISTS Agent");
 			statement.executeUpdate("DROP TABLE IF EXISTS Admin");
 			statement.executeUpdate("CREATE TABLE User" +
-					"(user_id FLOAT, name VARCHAR(20), birth_date DATE, PRIMARY KEY(user_id))ENGINE=INNODB;");
+					"(user_id FLOAT, name VARCHAR(20), birth_date DATE, password INT, PRIMARY KEY(user_id))ENGINE=INNODB;");
 			statement.executeUpdate("CREATE TABLE Coach" +
 					"(coach_id FLOAT, name VARCHAR(20), birth_date DATE, salary FLOAT, PRIMARY KEY(coach_id))ENGINE=INNODB;");
 			statement.executeUpdate("CREATE TABLE Player" +
@@ -151,7 +151,10 @@ public class Table_For_Datas {
 							", ('100209','Ismail Can Cavusluk','Forward','Bursaspor','0') ");
 			
 			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+			
+			statement.executeUpdate("INSERT INTO User (user_id, name, birth_date,password)" + 
+					"VALUES    ('100176','Mert','2011-01-01','123456')" );
+			
 			ResultSet rs = statement.executeQuery("SELECT * FROM Player"); //Result For Player Table
 	
 			System.out.println("Player Table");
@@ -168,6 +171,13 @@ public class Table_For_Datas {
 			}
 			System.out.println();
 			
+			ResultSet rs2 = statement.executeQuery("SELECT * FROM User"); //Result For User Table
+			
+			System.out.println("User Table");
+			while(rs2.next()){
+				System.out.println(rs2.getString("user_id") + " " + rs2.getString("name") + " " + rs2.getString("birth_date")+ " " + rs2.getString("password"));
+			}
+			System.out.println();
 			
 			
 			
