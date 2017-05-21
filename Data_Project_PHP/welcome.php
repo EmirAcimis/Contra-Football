@@ -1,7 +1,5 @@
- <?php
-   include 'session.php';
-?>
-<html">
+
+<html>
    
    <head>
       <title>Welcome </title>
@@ -12,4 +10,18 @@
       <h2><a href = "logout.php"><input type="submit" value="Sign Out"></a></h2>
    </body>
    
+</html>
+
+
+
+
+
+
+<html>
+ <head>
+ </head>
+ <body>
+
+
+</body>
 </html>

@@ -1,0 +1,118 @@
+@charset "utf-8";
+/* CSS Document */
+
+.close {
+	background: #558820;
+	color: #FFFFFF;
+	font-weight: 700;
+	text-align: center;
+	position: absolute;
+	line-height: 40px;
+	width: 40px;
+	border-radius: 20px;
+	top: -20px;
+	right: -20px;
+	box-shadow: 0 6px 9px rbga(0, 0, 0, 0.3);
+	transition: all 0.3s ease-in;
+}
+
+button {
+	background-color: #558820;
+	border: none;
+	border-radius: 3px;
+	color: #fff;
+	font-family: 'Roboto';
+	font-size: 16px;
+	font-weight: 400;
+	margin-left: 20%;
+	cursor: pointer;
+	padding: 8px;
+	transition: all 0.4s ease 0s;
+}
+
+button:hover{
+	background-color: #FFFFFF;
+	color: #558820;
+}
+
+textarea {
+	display: block;
+	background: #eee;
+	width: 70%;
+	height: auto;
+	margin: 10 auto;
+	font-family: 'Roboto';
+	font-size: 16px;
+	outline: none;
+	border: none;
+	resize: none;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+
+.modalDialog form {
+width: 50%;
+margin: 0 auto;
+}
+
+.modalDialog button {
+	width: 100px;
+	margin-left: 0px !important;
+}
+
+.modalDialog {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: auto;
+	background: rgba(0, 0, 0, 0.75);
+	z-index: 99999;
+	opacity: 0;
+	pointer-events: none;
+	font-family: 'Roboto';
+}
+.modalDialog:target{
+	pointer-events: auto;
+	opacity: 1;
+}
+
+.modalDialog > div{ /* element > element selector, it only selects the direct child div */
+	width: 55%;
+	position: relative; /* contents of this div will be positioned in relatively to this div */
+	margin: 10% auto;
+	background: #fff;
+	border-radius: 4px;
+	padding: 24px 48px;
+}
+
+h1 {
+	margin-top: 140px;
+	margin-left: 100px;
+	font-size: 24px;
+	color: #558820;
+	letter-spacing: -1px;
+	font-family: 'Roboto', 'sans-serif';
+	font-weight: 300;
+}
+
+.newsfeedchild{
+	background-image: url("images/main_newsFeed.png");
+}
+
+.topscorerchild{
+	
+	background-image: url("images/main_topScorers.png");
+
+}
+
+.mvpchild{
+	
+	background-image: url("images/main_mvps.png");
+}
+.profilechild{
+               
+    background-image: url("images/profile_panel.png");
+}
+
